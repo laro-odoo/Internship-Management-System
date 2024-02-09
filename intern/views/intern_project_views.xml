@@ -1,0 +1,49 @@
+<odoo>
+    <record id='intern_project_view_form' model='ir.ui.view'>
+        <field name='name'>intern.project.form</field>
+        <field name='model'>intern.project</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name='title'/>
+                        </group>
+                        <group>
+                            <field name='description'/>
+                        </group>
+                        <group>
+                            <field name='start_date'/>
+                        </group>
+                        <group>
+                            <field name='end_date'/>
+                        </group>
+                        <group>
+                            <field name='status'/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='intern_project_view_tree' model='ir.ui.view'>
+        <field name='name'>intern.project.tree</field>
+        <field name='model'>intern.project</field>
+        <field name='arch' type='xml'>
+            <tree string='Projects'>
+                <field name='title'/>
+                <field name='description'/>
+                <field name='start_date'/>
+                <field name='end_date'/>
+                <field name='status'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='intern_project_action' model='ir.actions.act_window'>
+        <field name='name'>Projects</field>
+        <field name='res_model'>intern.project</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+</odoo>

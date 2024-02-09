@@ -1,0 +1,48 @@
+<odoo>
+    <record id='intern_mentor_profile_view_form' model='ir.ui.view'>
+        <field name='name'>intern.mentor.profile.form</field>
+        <field name='model'>intern.mentor.profile</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name='name'/>
+                        </group>
+                        <group>
+                            <field name='email'/>
+                        </group>
+                        <group>
+                            <field name='phone_number'/>
+                        </group>
+                        <group>
+                            <field name='department'/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string='Interns'></page>  #TODO add the interns list and the add intern button
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='intern_mentor_profile_view_tree' model='ir.ui.view'>
+        <field name='name'>Mentor Profile</field>
+        <field name='model'>intern.mentor.profile</field>
+        <field name='arch' type='xml'>
+            <tree string='Mentor Profile'>
+                <field name='name'/>
+                <field name='email'/>
+                <field name='phone_number'/>
+                <field name='department'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='intern_mentor_profile_action' model='ir.actions.act_window'>
+        <field name='name'>Mentor Profile</field>
+        <field name='res_model'>intern.mentor.profile</field>
+        <field name='view_mode'>tree,form</field>
+    </record>
+</odoo>

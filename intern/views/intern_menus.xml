@@ -1,7 +1,14 @@
 <odoo>
     <menuitem id='inten_profile_menu_root' name='Internship'>
-        <menuitem id='intern_profile_first_level_menu' name='Interns'>
+        <menuitem id='intern_profile_first_level_menu' name='Profiles'>
             <menuitem id='intern_profile_action_menu' action='intern_profile_action'/>
+            <menuitem id='intern_mentor_profile_action_menu' action='intern_mentor_profile_action'/>
+        </menuitem>
+        
+        <menuitem id='intern_activity_first_level_menu' name='Activities'>
+            <menuitem id='intern_project_action_menu' action='intern_project_action'/>
+            <menuitem id='intern_assignment_action_menu' action='intern_assignment_action'/>
+            <menuitem id='intern_report_action_menu' action='intern_report_action'/>
         </menuitem>
     </menuitem>
 </odoo>

@@ -14,3 +14,4 @@ class InternProfile(models.Model):
     performance_evaluation = fields.Text()
     # mentor_id = fields.Many2one('intern.mentor', string='Mentor')  #TODO conenct mentor and project to the profile
     # project_id = fields.Many2one('intern.project', string='Project')
+    

@@ -1,5 +1,4 @@
 <odoo>
-
     <record id='intern_profile_view_search' model='ir.ui.view'>
         <field name='name'>intern.profile.search</field>
         <field name='model'>intern.profile</field>
