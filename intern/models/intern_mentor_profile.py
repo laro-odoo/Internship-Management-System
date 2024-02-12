@@ -7,5 +7,5 @@ class InternMentorProfile(models.Model):
     name = fields.Char(required=True)
     email = fields.Char()
     phone_number = fields.Char()
-    department = fields.Char(required=True) #TODO we can directly fetch the department from the name and vice versa
+    department = fields.Char(required=True) #TODO: we can directly fetch the department from the name and vice versa
     

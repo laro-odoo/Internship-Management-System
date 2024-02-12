@@ -1,18 +1,20 @@
 <odoo>
+    <!-- Search View -->
     <record id='intern_profile_view_search' model='ir.ui.view'>
         <field name='name'>intern.profile.search</field>
         <field name='model'>intern.profile</field>
         <field name='arch' type='xml'>
             <search>
-                <field name='first_name'/>
-                <field name='last_name'/>
+                <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
+                <field name='skills'/>
                 <filter string='Skill' name='skill_group_by' context="{'group_by': 'skills'}"/>
             </search>
         </field>
     </record>
 
+    <!-- Form View -->
     <record id='intern_profile_view_form' model='ir.ui.view'>
         <field name='name'>intern.profile.form</field>
         <field name='model'>intern.profile</field>
@@ -21,10 +23,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name='first_name'/>
-                    </group>
-                    <group>
-                        <field name='last_name'/>
+                            <field name='name'/>
                     </group>
                     <group>
                         <field name='email'/>
@@ -48,14 +47,13 @@
         </field>
     </record>
 
-
+    <!-- Tree View -->
     <record id='intern_profile_view_tree' model='ir.ui.view'>
         <field name='name'>intern.profile.tree</field>
         <field name='model'>intern.profile</field>
         <field name='arch' type='xml'>
             <tree string="Intern Profile">
-                <field name='first_name'/>
-                <field name='last_name'/>
+                <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
                 <field name='skills'/>
@@ -66,6 +64,7 @@
         </field>
     </record>
 
+    <!-- Action -->
     <record id='intern_profile_action' model='ir.actions.act_window'>
         <field name='name'>Intern Profile</field>
         <field name='res_model'>intern.profile</field>

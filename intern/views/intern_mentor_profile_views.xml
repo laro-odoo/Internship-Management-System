@@ -1,4 +1,19 @@
 <odoo>
+    <!-- Search View -->
+    <record id='intern_mentor_profile_view_search' model='ir.ui.view'>
+        <field name='name'>intern.mentor.profile.search</field>
+        <field name='model'>intern.mentor.profile</field>
+        <field name='arch' type='xml'>
+            <search>
+                <field name='name'/>
+                <field name='email'/>
+                <field name='phone_number'/>
+                <field name='department'/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Form View -->
     <record id='intern_mentor_profile_view_form' model='ir.ui.view'>
         <field name='name'>intern.mentor.profile.form</field>
         <field name='model'>intern.mentor.profile</field>
@@ -20,13 +35,14 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string='Interns'></page>  #TODO add the interns list and the add intern button
+                        <page string='Interns'></page>  <!-- TODO: add the interns list and the add intern button -->
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <!-- Tree View -->
     <record id='intern_mentor_profile_view_tree' model='ir.ui.view'>
         <field name='name'>Mentor Profile</field>
         <field name='model'>intern.mentor.profile</field>
@@ -40,6 +56,7 @@
         </field>
     </record>
 
+    <!-- Action -->
     <record id='intern_mentor_profile_action' model='ir.actions.act_window'>
         <field name='name'>Mentor Profile</field>
         <field name='res_model'>intern.mentor.profile</field>

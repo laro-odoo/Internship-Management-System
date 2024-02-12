@@ -1,4 +1,18 @@
 <odoo>
+    <!-- Search View -->
+    <record id='intern_report_view_search' model='ir.ui.view'>
+        <field name='name'>intern.report.search</field>
+        <field name='model'>intern.report</field>
+        <field name='arch' type='xml'>
+            <search>
+                <field name='title'/>
+                <field name='report_date'/>
+                <field name='report_details'/>
+            </search>
+        </field>
+    </record>
+    
+    <!-- Form View -->
     <record id='intern_report_view_form' model='ir.ui.view'>
         <field name='name'>intern.report.form</field>
         <field name='model'>intern.report</field>
@@ -21,6 +35,7 @@
         </field>
     </record>
 
+    <!-- Tree View -->
     <record id='intern_report_view_tree' model='ir.ui.view'>
         <field name='name'>intern.report.tree</field>
         <field name='model'>intern.report</field>
@@ -33,6 +48,7 @@
         </field>
     </record>
 
+    <!-- Action -->
     <record id='intern_report_action' model='ir.actions.act_window'>
         <field name='name'>Reports</field>
         <field name='res_model'>intern.report</field>
