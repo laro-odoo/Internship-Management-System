@@ -3,4 +3,9 @@ access_intern.profile,access_intern.profile,model_intern_profile,base.group_user
 access_intern.project,access_intern.project,model_intern_project,base.group_user,1,1,1,1
 access_intern.assignment,access_intern.assignment,model_intern_assignment,base.group_user,1,1,1,1
 access_intern_report,access_intern_report,model_intern_report,base.group_user,1,1,1,1
+access_intern.skill,access_intern.skill,model_intern_skill,base.group_user,1,1,1,1
+access_intern.project.status,access_intern.project.status,model_intern_project_status,base.group_user,1,1,1,1
 access_intern.mentor.profile,access_intern.mentor.profile,model_intern_mentor_profile,base.group_user,1,1,1,1
+access_intern.skill.rating,access_intern.skill.rating,model_intern_skill_rating,base.group_user,1,1,1,1
+access_intern.department,access_intern.department,model_intern_department,base.group_user,1,1,1,1
+access_intern.assignment.status,access_intern.assignment.status,model_intern_assignment_status,base.group_user,1,1,1,1

@@ -5,11 +5,8 @@
         <field name='model'>intern.project</field>
         <field name='arch' type='xml'>
             <search>
-                <field name='title'/>
+                <field name='name'/>
                 <field name='description'/>
-                <field name='start_date'/>
-                <field name='end_date'/>
-                <field name='status'/>
             </search>
         </field>
     </record>
@@ -23,21 +20,41 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name='title'/>
-                        </group>
-                        <group>
+                            <field name='name'/>
                             <field name='description'/>
                         </group>
-                        <group>
-                            <field name='start_date'/>
-                        </group>
-                        <group>
-                            <field name='end_date'/>
-                        </group>
-                        <group>
-                            <field name='status'/>
-                        </group>
                     </group>
+                    <notebook>
+                        <page name="Interns" string="Interns">
+                            <field name='project_status_ids'>
+                                <tree string="Project Status" editable='bottom'>
+                                    <field name="intern_id"/>
+                                    <field name="status"/>
+                                    <field name='start_date'/>
+                                    <field name='end_date'/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="assignments" string="Assignments">
+                            <field name='assignment_ids'>
+                                <form>
+                                    <group>
+                                        <field name='name'/>
+                                        <field name='description'/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Reports">
+                            <field name='submitted_reports' >
+                                <tree>
+                                    <field name='intern_id'/>
+                                    <field name='name'/>
+                                    <field name='report_date'/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -49,11 +66,7 @@
         <field name='model'>intern.project</field>
         <field name='arch' type='xml'>
             <tree string='Projects'>
-                <field name='title'/>
-                <field name='description'/>
-                <field name='start_date'/>
-                <field name='end_date'/>
-                <field name='status'/>
+                <field name='name'/>
             </tree>
         </field>
     </record>

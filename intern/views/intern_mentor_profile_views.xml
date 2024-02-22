@@ -8,7 +8,7 @@
                 <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
-                <field name='department'/>
+                <field name='department_id'/>
             </search>
         </field>
     </record>
@@ -31,11 +31,25 @@
                             <field name='phone_number'/>
                         </group>
                         <group>
-                            <field name='department'/>
+                            <field name='department_id'/>
                         </group>
                     </group>
                     <notebook>
-                        <page string='Interns'></page>  <!-- TODO: add the interns list and the add intern button -->
+                        <page string='Interns'>
+                            <group>
+                                <field name='intern_ids'>
+                                    <tree string='Interns' editable='bottom' delete='false'>
+                                        <field name='name'/>
+                                        <field name='email'/>
+                                        <field name='phone_number'/>
+                                        <field name='skill_ids' widget='many2many_tags' />
+                                        <field name='start_date'/>
+                                        <field name='end_date'/>
+                                        <button name="remove_mentor" string=' ' type="object" icon="fa-trash"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>  <!-- TODO: add the interns list and the add intern button -->
                     </notebook>
                 </sheet>
             </form>
@@ -51,7 +65,7 @@
                 <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
-                <field name='department'/>
+                <field name='department_id'/>
             </tree>
         </field>
     </record>

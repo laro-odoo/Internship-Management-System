@@ -12,5 +12,10 @@
             <menuitem id='intern_assignment_action_menu' action='intern_assignment_action'/>
             <menuitem id='intern_report_action_menu' action='intern_report_action'/>
         </menuitem>
+        <!-- Settings menu -->
+        <menuitem id='intern_setting_first_level_menu' name='Settings'>
+            <menuitem id='intern_department_action_menu' action='intern_department_action'/>
+            <menuitem id='intern_skill_action_menu' action='intern_skill_action'/>
+        </menuitem>
     </menuitem>
 </odoo>

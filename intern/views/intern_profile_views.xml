@@ -8,8 +8,10 @@
                 <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
-                <field name='skills'/>
-                <filter string='Skill' name='skill_group_by' context="{'group_by': 'skills'}"/>
+                <field name='skill_rating_ids'/>
+                <field name='mentor_id'/>
+                <filter string='Skill' name='skill_group_by' context="{'group_by': 'skill_ids'}"/>
+                <filter string='Department' name='department_group_by' context="{'group_by': 'department_id'}"/>
             </search>
         </field>
     </record>
@@ -24,20 +26,62 @@
                     <group>
                         <group>
                             <field name='name'/>
+                            <field name='email'/>
+                            <field name='phone_number'/>
                     </group>
                     <group>
-                        <field name='email'/>
-                    </group>
-                    <group>
-                        <field name='phone_number'/>
+                        <field name='mentor_id'/>
+                        <field name='start_date'/>
+                        <field name='end_date'/>
                     </group>
                     <notebook>
                         <page string='Skills'>
                             <group>
-                                <field name='skills'/>
-                                <field name='start_date'/>
-                                <field name='end_date'/>
+                                <field name='skill_rating_ids'>
+                                    <tree string="Skills" editable="bottom">
+                                        <field name='skill_id'/>
+                                        <field name='rating_star'/>
+                                    </tree>
+                                </field>
                                 <field name='performance_evaluation'/>
+                            </group>
+                        </page>
+                        <page string='Projects'>
+                            <group>
+                                <field name='project_status_ids'>
+                                    <tree string="Project Status" editable='bottom'>
+                                        <field name="project_id"/>
+                                        <!-- <field name="status"/> -->
+                                        <field name="completion_percentage" widget='progressbar'/>
+                                        <field name='start_date'/>
+                                        <field name='end_date'/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string='Assignments'>
+                            <group>
+                                <field name='assignment_status_ids'>
+                                    <tree editable='bottom'>
+                                        <field name="assignment_id"/>
+                                        <field name="project_name"/>
+                                        <field name="status"/>
+                                        <field name='start_date'/>
+                                        <field name='end_date'/>
+                                        <button string="Description" name="action_description" type="object"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string='Reports'>
+                            <group>
+                                <field name='report_ids'>
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="project_id"/>
+                                        <field name='report_date'/>
+                                    </tree>
+                                </field>
                             </group>
                         </page>
                     </notebook>
@@ -56,7 +100,8 @@
                 <field name='name'/>
                 <field name='email'/>
                 <field name='phone_number'/>
-                <field name='skills'/>
+                <field name="mentor_id" />
+                <field name='skill_rating_ids' widget='many2many_tags' />
                 <field name='start_date'/>
                 <field name='end_date'/>
                 <field name='performance_evaluation'/>

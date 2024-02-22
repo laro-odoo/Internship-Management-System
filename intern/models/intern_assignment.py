@@ -4,16 +4,13 @@ class InternAssignment(models.Model):
     _name = 'intern.assignment'
     _description = 'Intern Assignment'
 
-    title = fields.Char(required=True)
+    # Fields
+    name = fields.Char('Title', required=True)
     description = fields.Text()
     start_date = fields.Date(default=fields.Date.today(), required=True)
     end_date = fields.Date()
-    status = fields.Selection([
-        ('unassigned', 'Unassigned'),
-        ('assigned', 'Assigned'),
-        ('ongoing', 'Ongoing'),
-        ('completed', 'Completed')
-    ], default='unassigned', required=True)
-    feedback = fields.Text()
-    # intern_id = fields.Many2one('intern.profile', string='Intern')  # TODO: associate intern and project
-    # project_id = fields.Many2one('intern.project', string='Project')
+    maximum_marks = fields.Float(default=100, required=True)
+
+    # Relations
+    project_id = fields.Many2one('intern.project', string='Project')
+    assignment_status_ids = fields.One2many('intern.assignment.status', 'assignment_id', string="Assignment Status")

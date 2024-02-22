@@ -5,9 +5,12 @@
         <field name='model'>intern.report</field>
         <field name='arch' type='xml'>
             <search>
-                <field name='title'/>
+                <field name='name'/>
                 <field name='report_date'/>
-                <field name='report_details'/>
+                <field name='intern_id'/>
+                <field name='project_id'/>
+                <filter name="project_group_by" string="Project" context="{'group_by': 'project_id'}" />
+                <filter name="date_group_by" string="Date" context="{'group_by': 'report_date'}" />
             </search>
         </field>
     </record>
@@ -18,18 +21,34 @@
         <field name='model'>intern.report</field>
         <field name='arch' type='xml'>
             <form>
+                <header>
+                    <button string="Submit" name="action_submit" type="object" class="oe_highlight" invisible="status == 'submitted'" />
+                    <button string="Unsubmit" name="action_unsubmit" type="object" class="oe_highlight" invisible="status in ('created', 'unsubmit')" />
+                    <field name='status' widget='statusbar' statusbar_visible='created,submitted' />
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name='title'/>
+                            <field name='name' readonly="status == 'submitted'"/>
                         </group>
                         <group>
-                            <field name='report_date'/>
-                        </group>
-                        <group>
-                            <field name='report_details'/>
+                            <field name='report_date' readonly="status == 'submitted'"/>
+                            <field name='intern_id' readonly="status == 'submitted'"/>
+                            <field name='project_id' readonly="status == 'submitted'"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <group>
+                                    <field name='report_details' readonly="status == 'submitted'"/>
+                                </group>
+                                <group>
+                                    <field name="file" widget="binary" filename="filename" readonly="status == 'submitted'"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -41,7 +60,7 @@
         <field name='model'>intern.report</field>
         <field name='arch' type='xml'>
             <tree string='Reports'>
-                <field name='title'/>
+                <field name='name'/>
                 <field name='report_date'/>
                 <field name='report_details'/>
             </tree>
@@ -53,5 +72,6 @@
         <field name='name'>Reports</field>
         <field name='res_model'>intern.report</field>
         <field name='view_mode'>tree,form</field>
+        <field name='context'>{'group_by': 'intern_id'}</field>
     </record>
 </odoo>

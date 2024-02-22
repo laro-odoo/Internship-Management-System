@@ -11,11 +11,14 @@
     'data': [
         'security/ir.model.access.csv',
         
+        'views/intern_project_status_views.xml',
         'views/intern_profile_views.xml',
         'views/intern_mentor_profile_views.xml',
         'views/intern_project_views.xml',
         'views/intern_assignment_views.xml',
         'views/intern_report_views.xml',
+        'views/intern_skill_views.xml',
+        'views/intern_department_views.xml',
         'views/intern_menus.xml',
     ],
     'installable': True,

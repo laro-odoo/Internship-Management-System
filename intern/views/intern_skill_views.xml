@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Search View -->
+    <record id="intern_skill_view_search" model="ir.ui.view">
+        <field name="name">intern.skill.search</field>
+        <field name="model">intern.skill</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="intern_skill_view_form" model="ir.ui.view">
+        <field name="name">intern.skill.form</field>
+        <field name="model">intern.skill</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Interns">
+                            <field name="skill_rating_ids">
+                                <tree string="Interns" editable='bottom'>
+                                    <field name="intern_id"/>
+                                    <field name="rating_star"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="intern_skill_action" model="ir.actions.act_window">
+        <field name="name">Skills</field>
+        <field name="res_model">intern.skill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
