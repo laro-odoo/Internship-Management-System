@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_intern">
+        <t t-foreach="docs" t-as="intern">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div>
+                        <h4><strong>Name: </strong> <t t-out="intern.name"/></h4>
+                    </div>
+                    <div>
+                        <h4><strong>Email: </strong> <t t-out="intern.email"/></h4>
+                    </div>
+                    <div>
+                        <h4><strong>Phone: </strong> <t t-out="intern.phone_number"/></h4>
+                    </div>
+                    <div>
+                        <h4><strong>Mentor: </strong> <t t-out="intern.mentor_id.name"/></h4>
+                    </div>
+                    <br/>
+                    <div class='page'>
+                        <t t-foreach="intern.project_status_ids.search([('intern_id', '=', intern.id)])" t-as="project">
+                            <t t-call="intern.intern_proj_list"/>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="intern_proj_list" >
+    <h5>
+        <strong>Project: </strong>
+        <span t-field="project.project_id.name"/>
+    </h5>
+    <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Marks Obtained</th>
+                    <th>Total Marks</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="project.intern_id.assignment_status_ids.search([('assignment_id.project_id', '=', project.project_id.id), ('intern_id', '=', intern.id)])" t-as="assign">
+                <tr>
+                    <td>
+                        <span t-field="assign.name"/>
+                    </td>
+                    <td>
+                        <span t-field="assign.marks_obtained"/>
+                    </td>
+                    <td>
+                        <span t-field="assign.maximum_marks"/>
+                    </td>
+                    <td>
+                        <t t-if="assign.marks_obtained >= assign.maximum_marks * 0.7">
+                            <span>Pass</span>
+                        </t>
+                        <t t-else="">
+                            <span>Fail</span>
+                        </t>
+                    </td>
+                </tr>
+            </t>
+            </tbody>
+        </table>
+        <t t-if='project.total_marks_obtained >= project.total_marks * 0.7'>
+            <span>Congratulations! You have passed this project.</span>
+        </t>
+        <t t-else="">
+            <span>Sorry! You have failed this project.</span>
+        </t>
+    </template>
+</odoo>

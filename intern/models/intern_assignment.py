@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 class InternAssignment(models.Model):
     _name = 'intern.assignment'
@@ -14,3 +14,14 @@ class InternAssignment(models.Model):
     # Relations
     project_id = fields.Many2one('intern.project', string='Project')
     assignment_status_ids = fields.One2many('intern.assignment.status', 'assignment_id', string="Assignment Status")
+
+    @api.model
+    def create(self, vals):
+        assign = super().create(vals)
+        project_status = self.env['intern.project.status'].search([('project_id', '=', assign.project_id.id), ('status', '!=', 'completed')])
+        for status in project_status:
+            self.env['intern.assignment.status'].create({
+                'assignment_id': assign.id,
+                'intern_id': status.intern_id.id,
+            })
+        return assign

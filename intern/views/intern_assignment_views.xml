@@ -6,6 +6,8 @@
         <field name='arch' type='xml'>
             <search>
                 <field name='name'/>
+                <field name='project_id'/>
+                <field name='maximum_marks'/>
             </search>
         </field>
     </record>
@@ -21,6 +23,7 @@
                         <group>
                             <field name='name'/>
                             <field name='project_id'/>
+                            <field name='maximum_marks'/>
                         </group>
                         <notebook>
                             <page string="Description">
@@ -33,6 +36,7 @@
                                     <tree editable='bottom'>
                                         <field name="intern_id"/>
                                         <field name='status'/>
+                                        <field name='marks_obtained'/>
                                         <field name='start_date'/>
                                         <field name='end_date'/>
                                     </tree>
@@ -52,6 +56,7 @@
         <field name='arch' type='xml'>
             <tree string='Assignments'>
                 <field name='name'/>
+                <field name='maximum_marks'/>
                 <field name='description'/>
             </tree>
         </field>

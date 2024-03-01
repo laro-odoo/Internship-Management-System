@@ -14,7 +14,13 @@ class InternProject(models.Model):
     assignment_ids = fields.One2many('intern.assignment', 'project_id', string="Assignments")
     report_ids = fields.One2many('intern.report', 'project_id', string="Reports")
     submitted_reports = fields.One2many('intern.report', 'project_id', string="Submitted Reports", compute='_compute_submitted_reports')
+    total_marks = fields.Float("Total Marks", compute='_compute_total_marks')
 
     @api.depends('report_ids')
     def _compute_submitted_reports(self):
         self.submitted_reports = self.report_ids.search([('status', '=', 'submitted')])
+    
+    @api.depends('report_ids')
+    def _compute_total_marks(self):
+        for project in self:
+            project.total_marks = sum(project.assignment_ids.mapped('maximum_marks'))

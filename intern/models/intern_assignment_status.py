@@ -3,7 +3,7 @@ from odoo import fields, models
 class InternAssignmentStatus(models.Model):
     _name = 'intern.assignment.status'
     _description = 'Intern Assignment Status'
-
+    
     # Fields
     name = fields.Char('Title', related='assignment_id.name', required=True)
     status = fields.Selection([

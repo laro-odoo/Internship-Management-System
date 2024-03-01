@@ -51,8 +51,10 @@
                                 <field name='project_status_ids'>
                                     <tree string="Project Status" editable='bottom'>
                                         <field name="project_id"/>
-                                        <!-- <field name="status"/> -->
+                                        <field name="status"/>
                                         <field name="completion_percentage" widget='progressbar'/>
+                                        <field name='total_marks_obtained'/>
+                                        <field name='total_marks'/>
                                         <field name='start_date'/>
                                         <field name='end_date'/>
                                     </tree>
@@ -62,15 +64,18 @@
                         <page string='Assignments'>
                             <group>
                                 <field name='assignment_status_ids'>
-                                    <tree editable='bottom'>
+                                    <tree editable='bottom' default_order="project_name">
                                         <field name="assignment_id"/>
                                         <field name="project_name"/>
+                                        <field name="marks_obtained"/>
+                                        <field name="maximum_marks"/>
                                         <field name="status"/>
                                         <field name='start_date'/>
                                         <field name='end_date'/>
                                         <button string="Description" name="action_description" type="object"/>
                                     </tree>
                                 </field>
+
                             </group>
                         </page>
                         <page string='Reports'>
@@ -87,6 +92,11 @@
                     </notebook>
                 </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
             </form>
         </field>
     </record>

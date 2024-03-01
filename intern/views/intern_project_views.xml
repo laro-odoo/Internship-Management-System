@@ -22,6 +22,7 @@
                         <group>
                             <field name='name'/>
                             <field name='description'/>
+                            <field name='total_marks'/>
                         </group>
                     </group>
                     <notebook>
@@ -30,20 +31,15 @@
                                 <tree string="Project Status" editable='bottom'>
                                     <field name="intern_id"/>
                                     <field name="status"/>
+                                    <field name='total_marks_obtained'/>
+                                    <field name="completion_percentage" widget='progressbar'/>
                                     <field name='start_date'/>
                                     <field name='end_date'/>
                                 </tree>
                             </field>
                         </page>
                         <page name="assignments" string="Assignments">
-                            <field name='assignment_ids'>
-                                <form>
-                                    <group>
-                                        <field name='name'/>
-                                        <field name='description'/>
-                                    </group>
-                                </form>
-                            </field>
+                            <field name='assignment_ids'/>
                         </page>
                         <page string="Reports">
                             <field name='submitted_reports' >

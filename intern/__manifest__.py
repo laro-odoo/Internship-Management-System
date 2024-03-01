@@ -6,10 +6,16 @@
     'description': "",
     'license': 'LGPL-3',
     'author': 'Lakshay Roopchandani',
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'mail'
+    ],
     # data files always loaded at installation
     'data': [
         'security/ir.model.access.csv',
+
+        'report/intern_report_templates.xml',
+        'report/intern_reports.xml',
         
         'views/intern_project_status_views.xml',
         'views/intern_profile_views.xml',

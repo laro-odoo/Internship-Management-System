@@ -8,7 +8,6 @@
                 <field name="intern_id" />
                 <field name="project_id"/>
                 <field name="status"/>
-                <!-- <field name="completion_percentage" widget='progressbar'/> -->
             </tree>
         </field>
     </record>
